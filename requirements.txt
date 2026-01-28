@@ -1,2 +1,5 @@
 rembg
 pillow
+fastapi
+uvicorn
+gunicorn
