@@ -1,4 +1,4 @@
-rembg
+rembg[cpu]
 pillow
 fastapi
 uvicorn
