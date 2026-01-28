@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Background Remover</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="shell">
+    <section class="card">
+      <header class="head">
+        <h1>Background Remover</h1>
+        <p class="sub">Upload or capture an image, remove background, and download PNG.</p>
+      </header>
+
+      <!-- Upload -->
+      <label class="drop" for="fileInput" id="dropZone">
+        <input type="file" id="fileInput" accept="image/*" />
+        <div class="dropInner">
+          <div class="ico">📁</div>
+          <div class="txt">
+            <div class="title">Upload Image</div>
+            <div class="hint">PNG / JPG — max depends on your system</div>
+          </div>
+          <div class="chip" id="fileName">No file</div>
+        </div>
+      </label>
+
+      <div class="or">
+        <span></span><b>OR</b><span></span>
+      </div>
+
+      <!-- Camera -->
+      <div class="camBox">
+        <div class="row">
+          <button class="btn green" id="cameraBtn" type="button">📷 Use Camera</button>
+          <button class="btn ghost" id="switchBtn" type="button" disabled>Switch</button>
+          <button class="btn ghost" id="captureBtn" type="button" disabled>Capture</button>
+        </div>
+
+        <div class="preview">
+          <video id="video" autoplay playsinline muted></video>
+          <img id="shotPreview" class="hidden" alt="Captured preview" />
+          <canvas id="canvas" class="hidden"></canvas>
+        </div>
+
+        <p class="note" id="camNote">
+          Tip: Camera works best on <b>https</b> or <b>localhost</b>. Mobile may block camera on plain http IP.
+        </p>
+      </div>
+
+      <!-- Action -->
+      <div class="actions">
+        <button class="btn blue" id="processBtn" type="button" disabled>Remove Background</button>
+      </div>
+
+      <!-- Loader -->
+      <div class="loader hidden" id="loader">
+        <div class="spin"></div>
+        <div class="loadingText">Processing…</div>
+      </div>
+
+      <!-- Result -->
+      <section class="result hidden" id="resultBox">
+        <div class="resultHead">
+          <h2>Result</h2>
+          <a id="downloadBtn" class="btn dark" download="transparent.png">⬇ Download PNG</a>
+        </div>
+        <div class="resultPreview">
+          <img id="resultImg" alt="Result image" />
+        </div>
+      </section>
+
+      <p class="status" id="status"></p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
